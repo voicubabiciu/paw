@@ -25,7 +25,7 @@ class MailController extends Controller
             'name' => $request['name']);
         Mail::send('confirmAccountEmail', $data, function ($message) use ($request) {
             $message->to($request['email'], 'Account confirmation')->subject
-            ('Password reset');
+            ('Account confirmation');
             $message->from('todoappproiect@gmail.com', 'No Reply');
         });
         return redirect('/register')->with('success', 'A confirmation email has been sent!');

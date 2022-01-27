@@ -17,7 +17,7 @@ class HomeController extends Controller
         if (session()->get('userSession') == null) {
             return redirect('/login');
         }
-        $todos = Todo::latest()->paginate(5);
+        $todos = Todo::query()->where('userId', '=', session()->get('userId'))->paginate(5);
         return view('home.todo.index', compact('todos'));
     }
 
