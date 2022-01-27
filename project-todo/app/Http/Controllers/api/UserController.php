@@ -19,7 +19,7 @@ class UserController extends Controller
         ]);
         $data['password'] = bcrypt($request->password);
         $user = User::create($data);
-        $token = $user->createToken('API Token')->accessToken;
+        $token = $user->createToken('API Token')->accessToken->token;
         $success['message'] = 'User register successfully';
         $success['token'] = $token;
 
