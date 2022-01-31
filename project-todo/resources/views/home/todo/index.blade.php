@@ -27,17 +27,21 @@
                       required>@isset($todo){{$todo->description}}@endisset</textarea>
         </div>
 
-        <div class="row">
-            <div class="col">
-                @isset($todo)
-                    @method('PUT')
+        @isset($todo)
+            @method('PUT')
+            <div class="row">
+                <div class="col">
                     <input type="submit" class="btn btn-success w-100" value="Update todo">
-                @else
-                    <input type="submit" class="btn btn-success w-100" value="Add todo">
-                @endisset
-            </div>
 
-        </div>
+                </div>
+                <div class="col">
+                    <a type="button" class="btn btn-outline-success w-100" href="{{route('home.index')}}" >Cancel</a>
+                </div>
+            </div>
+        @else
+            <input type="submit" class="btn btn-success w-100" value="Add todo">
+        @endisset
+
     </form>
 
 
